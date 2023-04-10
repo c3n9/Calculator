@@ -1,0 +1,18 @@
+﻿<Window x:Class="Calc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calc"
+        mc:Ignorable="d"
+        Icon="/Resources/CalcLogo.ico"
+        Title="Calculator" 
+        MinHeight="500" 
+        MinWidth="350" 
+        MaxHeight="550" 
+        MaxWidth="350">
+    <Grid>
+        <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
