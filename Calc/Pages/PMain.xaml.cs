@@ -21,7 +21,7 @@ namespace Calc.Pages
     public partial class PMain : Page
     {
         string mathAction = "";
-        double num;
+        double num; 
         public PMain()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace Calc.Pages
 
         private void AddNumberForLabel_Click(object sender, RoutedEventArgs e)
         {
-            if(Label.Text.Length == 8)
+            if (Label.Text.Length == 8)
                 return;
             else
                 Label.Text += ((Button)sender).Content;
@@ -58,7 +58,7 @@ namespace Calc.Pages
         {
             if (Validation() == false)
                 return;
-            if (mathAction == "*")
+            if (mathAction == "×")
                 Label.Text = Convert.ToString(num * double.Parse(Label.Text));
             if (mathAction == "/")
                 Label.Text = Convert.ToString(num / double.Parse(Label.Text));
@@ -66,6 +66,7 @@ namespace Calc.Pages
                 Label.Text = Convert.ToString(num - double.Parse(Label.Text));
             if (mathAction == "+")
                 Label.Text = Convert.ToString(num + double.Parse(Label.Text));
+
         }
 
         private void PosOrNeg_Click(object sender, RoutedEventArgs e)
@@ -76,10 +77,7 @@ namespace Calc.Pages
         private bool Validation()
         {
             if (Label.Text == "" || Label.Text == ",")
-            {
-                MessageBox.Show("Enter number");
                 return false;
-            }
             return true;
         }
     }
