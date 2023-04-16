@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Calc.Pages
 {
@@ -56,6 +57,11 @@ namespace Calc.Pages
 
         private void BResult_Click(object sender, RoutedEventArgs e)
         {
+            if (num != null && Label.Text == "0")
+            {
+                MessageBox.Show("На ноль делить нельзя");
+                return;
+            }
             if (Validation() == false)
                 return;
             if (mathAction == "×")
@@ -66,7 +72,14 @@ namespace Calc.Pages
                 Label.Text = Convert.ToString(num - double.Parse(Label.Text));
             if (mathAction == "+")
                 Label.Text = Convert.ToString(num + double.Parse(Label.Text));
-
+            if(Label.Text.Length > 8)
+            {
+                while (Label.Text.Length != 8)
+                {
+                    Label.Text = Label.Text.Substring(0, Label.Text.Length - 1);
+                }
+            }
+            
         }
 
         private void PosOrNeg_Click(object sender, RoutedEventArgs e)
